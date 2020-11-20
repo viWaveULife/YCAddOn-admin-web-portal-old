@@ -24,11 +24,91 @@ export const asyncRoutes = [
   {
     path: '/',
     component: Layout,
+    redirect: '/accountManagement',
+    meta: {
+      title: '會員管理',
+      icon: 'home-4-line',
+      affix: true,
+    },
+    children: [
+      {
+        path: 'accountManagement',
+        name: 'AccountManagement',
+        component: () => import('@/views/accountManagement'),
+        meta: {
+          title: '會員管理',
+          icon: 'home-4-line',
+          affix: true,
+        },
+      },
+    ],
+  },
+  {
+    path: '/healthManagement',
+    component: Layout,
+    redirect: '/healthManagement/dashboard',
+    alwaysShow: true,
+    meta: {
+      title: '健康服務管理',
+      icon: 'apps-line',
+    },
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/healthManagement/dashboard'),
+        meta: {
+          title: '健康方案儀表板',
+          icon: 'table-2',
+        },
+      },
+      {
+        path: 'servicePlanManagement',
+        name: 'ServicePlanManagement',
+        component: () =>
+          import('@/views/healthManagement/servicePlanManagement'),
+        meta: {
+          title: '服務方案管理',
+          icon: 'table-2',
+        },
+      },
+      {
+        path: 'caseManagement',
+        name: 'CaseManagement',
+        component: () => import('@/views/healthManagement/caseManagement'),
+        meta: {
+          title: '個案管理',
+          icon: 'table-2',
+        },
+      },
+      {
+        path: 'healthReport',
+        name: 'HealthReport',
+        component: () => import('@/views/healthManagement/healthReport'),
+        meta: {
+          title: '健康報告',
+          icon: 'table-2',
+        },
+      },
+      {
+        path: 'healthRecord',
+        name: 'HealthRecord',
+        component: () => import('@/views/healthManagement/healthRecord'),
+        meta: {
+          title: '健康紀錄',
+          icon: 'table-2',
+        },
+      },
+    ],
+  },
+  {
+    path: '/index',
+    component: Layout,
     redirect: '/index',
     meta: {
       title: '首页',
       icon: 'home-4-line',
-      affix: true,
+      //affix: true,
     },
     children: [
       {
@@ -38,7 +118,7 @@ export const asyncRoutes = [
         meta: {
           title: '首页',
           icon: 'home-4-line',
-          affix: true,
+          //affix: true,
         },
       },
     ],
