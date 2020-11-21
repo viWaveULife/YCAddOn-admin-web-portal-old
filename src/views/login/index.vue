@@ -1,11 +1,10 @@
 <template>
   <div class="login-container">
     <a-row>
-      <a-col :xs="0" :md="0" :sm="12" :lg="14" :xl="16"></a-col>
-      <a-col :xs="24" :sm="24" :md="12" :lg="10" :xl="6">
+      <a-col :xs="0" :sm="4" :md="6" :lg="8" :xl="8"></a-col>
+      <a-col :xs="24" :sm="16" :md="12" :lg="8" :xl="8">
         <div class="login-container-form">
-          <div class="login-container-hello">hello!</div>
-          <div class="login-container-title">欢迎来到 {{ title }}</div>
+          <h4 class="login-container-title">{{ title }}</h4>
           <a-form :model="form" @submit="handleSubmit" @submit.prevent>
             <a-form-item>
               <a-input v-model:value="form.username" placeholder="Username">
@@ -13,6 +12,7 @@
                   <UserOutlined style="color: rgba(0, 0, 0, 0.25)" />
                 </template>
               </a-input>
+              <div class="login-container-message">{{ message.username }}</div>
             </a-form-item>
             <a-form-item>
               <a-input
@@ -24,25 +24,21 @@
                   <LockOutlined style="color: rgba(0, 0, 0, 0.25)" />
                 </template>
               </a-input>
+              <div class="login-container-message">{{ message.password }}</div>
             </a-form-item>
-            <a-form-item>
+            <a-form-item :wrapper-col="{ span: 24 }">
               <a-button
-                type="primary"
+                block
                 html-type="submit"
                 :disabled="form.username === '' || form.password === ''"
               >
-                登录
+                登入
               </a-button>
             </a-form-item>
           </a-form>
         </div>
       </a-col>
     </a-row>
-    <div class="login-container-tips">
-      基于vue{{ dependencies['vue'] }}
-      + ant-design-vue
-      {{ dependencies['ant-design-vue'] }}开发
-    </div>
   </div>
 </template>
 <script>
@@ -59,6 +55,10 @@
     data() {
       return {
         form: {
+          username: '',
+          password: '',
+        },
+        message: {
           username: '',
           password: '',
         },
@@ -107,28 +107,25 @@
 <style lang="less">
   .login-container {
     height: 100vh;
-    background: url('~@/assets/login_images/login_background.png');
+    background: #e0e0e0;
     background-size: cover;
     &-form {
       width: calc(100% - 40px);
-      height: 380px;
       padding: 4vh;
       margin-top: calc((100vh - 380px) / 2);
       margin-right: 20px;
       margin-left: 20px;
-      background: url('~@/assets/login_images/login_form.png');
+      background: rgba(255, 255, 255, 0.1);
       background-size: 100% 100%;
       border-radius: 10px;
       box-shadow: 0 2px 8px 0 rgba(7, 17, 27, 0.06);
     }
-    &-hello {
-      font-size: 32px;
-      color: #fff;
-    }
     &-title {
       margin-bottom: 30px;
-      font-size: 20px;
-      color: #fff;
+      font-size: 26px;
+      color: #000;
+      text-align: center;
+      line-height: 32px;
     }
     &-tips {
       position: fixed;
@@ -138,14 +135,21 @@
       color: rgba(255, 255, 255, 0.856);
       text-align: center;
     }
+    &-message {
+      color: #ff0000;
+      line-height: 25px;
+      font-size: 18px;
+    }
     .ant-input {
       width: 400px;
       height: 35px;
     }
     .ant-btn {
-      width: 365px;
-      height: 45px;
-      border-radius: 99px;
+      height: 40px;
+      border-radius: 5px;
+      background-color: #000;
+      color: #fff;
+      margin-top: 70px;
     }
   }
 </style>
