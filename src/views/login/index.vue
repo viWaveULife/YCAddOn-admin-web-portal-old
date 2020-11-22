@@ -6,7 +6,7 @@
         <div class="login-container-form">
           <h4 class="login-container-title">{{ title }}</h4>
           <a-form :model="form" @submit="handleSubmit" @submit.prevent>
-            <a-form-item>
+            <a-form-item :wrapper-col="{ span: 24 }">
               <a-input v-model:value="form.username" placeholder="Username">
                 <template v-slot:prefix>
                   <UserOutlined style="color: rgba(0, 0, 0, 0.25)" />
@@ -14,7 +14,7 @@
               </a-input>
               <div class="login-container-message">{{ message.username }}</div>
             </a-form-item>
-            <a-form-item>
+            <a-form-item :wrapper-col="{ span: 24 }">
               <a-input
                 v-model:value="form.password"
                 type="password"
@@ -141,8 +141,8 @@
       font-size: 18px;
     }
     .ant-input {
-      width: 400px;
-      height: 35px;
+      width: 100%;
+      height: 30px;
     }
     .ant-btn {
       height: 40px;
