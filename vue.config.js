@@ -182,8 +182,8 @@ module.exports = {
           javascriptEnabled: true,
           modifyVars: {
             'vab-color-blue': '#1890ff',
-            'vab-margin': '20px',
-            'vab-padding': '20px',
+            'vab-margin': '10px',
+            'vab-padding': '10px',
             'vab-header-height': '65px',
           },
         },
