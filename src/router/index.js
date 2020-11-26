@@ -22,7 +22,7 @@ export const constantRoutes = [
 ]
 export const asyncRoutes = [
   {
-    path: '/',
+    path: '/accountManagement',
     component: Layout,
     redirect: '/accountManagement',
     meta: {
@@ -44,9 +44,9 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/healthManagement',
+    path: '/',
     component: Layout,
-    redirect: '/healthManagement/dashboard',
+    redirect: '/dashboard',
     alwaysShow: true,
     meta: {
       title: '健康服務管理',
